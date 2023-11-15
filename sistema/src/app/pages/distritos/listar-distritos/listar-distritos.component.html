@@ -1,0 +1,69 @@
+<app-navbar></app-navbar>
+<section class="content">
+    <div class="container-fluid">
+        <div class="row m-t-sm">
+            <div class="col-md-15">
+                <div class="panel">
+                    <div class="panel-body">
+                        <div class="col-md-12 col-sm-12" id="form" style="display:block;">
+                            <div class="panel panel-filled">
+                                <div class="panel-body">
+                                    <div class="view-header">
+                                        <div class="header-icon">
+                                            <i class="pe page-header-icon pe-7s-map"></i>
+                                        </div>
+                                        <div class="header-title">
+                                            <h3>Distritos</h3>
+                                            <small>
+                                                Ubicación de Nuestras Tiendas
+                                            </small>
+                                        </div>
+                                    </div>
+                                    <div class="map">
+                                        <google-map #map height="50vh" width="100%" [center]="center" [zoom]="zoom" (mapInitialized)="handleMapInitialized($event)">
+                                        </google-map>
+                                      </div>                                      
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-sm-12" id="form" style="display:block;">
+                            <div class="panel panel-filled">
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <h5 class="m-t-xs">Ubicación de Nuestros Locales - Lima</h5>
+                                        </div>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table id="tableExample1" class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Distrito</th>
+                                                    <th>Departamento</th>
+                                                    <th>Cantidad</th>
+                                                    <th>Acciones</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="datos">
+                                                <tr *ngFor="let distrito of listDistritos">
+                                                    <td>{{ distrito.nombre }}</td>
+                                                    <td>{{ distrito.departamento }}</td>
+                                                    <td>{{ distrito.cantidadDeTiendas }}</td>
+                                                    <td>
+                                                        <i (click)="verTiendas(distrito._id)" style="font-size: 25px;" class="pe pe-7s-look text-accent"></i>&nbsp;&nbsp;
+                                                        <i (click)="eliminarDistrito(distrito._id)"  style="font-size: 25px;" class="pe pe-7s-trash text-accent"></i>&nbsp;&nbsp;
+                                                        <i [routerLink]="['/listar-tiendas', distrito._id]" style="font-size: 25px;" class="pe pe-7s-pen text-accent"></i>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

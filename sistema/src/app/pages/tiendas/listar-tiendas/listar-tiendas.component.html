@@ -1,0 +1,50 @@
+<app-navbar></app-navbar>
+<section class="content">
+    <div class="container-fluid">
+        <div class="row m-t-sm">
+            <div class="col-md-15">
+                <div class="panel">
+                    <div class="panel-body">
+                        <div class="col-md-12 col-sm-12" id="form" style="display:block;">
+                            <div class="panel panel-filled">
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <h5 class="m-t-xs">Tiendas</h5>
+                                        </div>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table id="tableExample1" class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Nombre</th>
+                                                    <th>Distrito</th>
+                                                    <th>Latitud</th>
+                                                    <th>Longitud</th>
+                                                    <th>Acciones</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="datos">
+                                                <tr *ngFor="let tienda of listTiendas">
+                                                    <td>{{ tienda.nombre }}</td>
+                                                    <td>{{ tienda.distrito }}</td>
+                                                    <td>{{ tienda.latitud }}</td>
+                                                    <td>{{ tienda.longitud }}</td>
+                                                    <td>
+                                                        <i style="font-size: 25px;" class="pe pe-7s-look text-accent"></i>&nbsp;&nbsp;
+                                                        <i (click)="eliminarTienda(tienda._id)"  style="font-size: 25px;" class="pe pe-7s-trash text-accent"></i>&nbsp;&nbsp;
+                                                        <i [routerLink]="['/editar-tienda', tienda._id]" style="font-size: 25px;" class="pe pe-7s-pen text-accent"></i>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
