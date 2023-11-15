@@ -2,9 +2,14 @@
 const express = require('express');
 const router = express.Router();
 const productoController = require('../controllers/productoController');
+const multipart = require('connect-multiparty');
+
+const multiPartMiddelware = multipart({
+    uploadDir: './public/images'
+});
 
 //api/productos
-router.post('/', productoController.crearProducto);
+router.post('/',multiPartMiddelware, productoController.crearProducto);
 router.get('/', productoController.obtenerProductos);
 router.put('/:id', productoController.actualizarProducto);
 router.get('/:id', productoController.verProducto);

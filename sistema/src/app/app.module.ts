@@ -17,6 +17,7 @@ import { GoogleMapsModule } from '@angular/google-maps';
 import { ListarDistritosComponent } from './pages/distritos/listar-distritos/listar-distritos.component';
 import { ListarTiendasComponent } from './pages/tiendas/listar-tiendas/listar-tiendas.component';
 import { EditarTiendasComponent } from './pages/tiendas/editar-tiendas/editar-tiendas.component';
+import { UploadComponent } from './pages/upload/upload.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { EditarTiendasComponent } from './pages/tiendas/editar-tiendas/editar-ti
     TiendasComponent,
     ListarDistritosComponent,
     ListarTiendasComponent,
-    EditarTiendasComponent
+    EditarTiendasComponent,
+    UploadComponent
   ],
   imports: [
     BrowserModule,

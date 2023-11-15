@@ -1,11 +1,14 @@
 const Producto = require("../models/Producto");
 
-exports.crearProducto = async (req, res) => {
-    try {
-        const producto = new Producto(req.body);
 
-        await producto.save();
-        res.send(producto);
+exports.crearProducto = async (req, res) => {
+    console.log(req.body)
+    try {
+        
+        // const producto = new Producto(req.body);
+
+        // await producto.save();
+        res.send("OK");
 
 
     } catch (error) {
@@ -32,7 +35,7 @@ exports.actualizarProducto = async (req, res) => {
 
     try {
 
-        const {_id, producto, categoria, ubicacion, precio } = new Producto(req.body);
+        const {_id, producto, categoria, imagen, ubicacion, precio } = new Producto(req.body);
         let products = await Producto.findById(req.params.id);
 
         if(!products){
@@ -44,6 +47,7 @@ exports.actualizarProducto = async (req, res) => {
         products.categoria = categoria;
         products.ubicacion = ubicacion;
         products.precio = precio;
+        products.imagen = imagen;
 
         console.log(products)
 

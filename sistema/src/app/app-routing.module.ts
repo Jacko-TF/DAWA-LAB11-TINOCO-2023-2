@@ -9,6 +9,7 @@ import { TiendasComponent } from './pages/tiendas/tiendas.component';
 import { ListarDistritosComponent } from './pages/distritos/listar-distritos/listar-distritos.component';
 import { ListarTiendasComponent } from './pages/tiendas/listar-tiendas/listar-tiendas.component';
 import { EditarTiendasComponent } from './pages/tiendas/editar-tiendas/editar-tiendas.component';
+import { UploadComponent } from './pages/upload/upload.component';
 
 const routesInicio: Routes = [
   { path: '', component: LoginComponent },
@@ -20,6 +21,7 @@ const routesInicio: Routes = [
   { path: 'listar-distritos', component: ListarDistritosComponent },
   { path: 'listar-tiendas/:id', component: ListarTiendasComponent },
   { path: 'editar-tienda/:id', component: EditarTiendasComponent },
+  { path: 'upload', component: UploadComponent },
   { path: '**', redirectTo: '', pathMatch: 'full'}
 ];
 

@@ -1,0 +1,63 @@
+<app-navbar></app-navbar>
+<section class="content">
+  <div class="container-fluid">
+    <div class="row m-t-sm">
+      <div class="col-md-15">
+        <div class="panel">
+          <div class="panel-body">
+            <div class="col-md-12 col-sm-12" id="form" style="display: block">
+              <div class="panel panel-filled">
+                <div class="panel-body">
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <h5 class="m-t-xs">Ingreso de Producto</h5>
+                    </div>
+                    <div class="col-sm-12">
+                      <form>
+                        <input
+                          class="form-control upload"
+                          id="formFileLg"
+                          type="file"
+                          (change)="onFileChange($event)"
+                        />
+                        <button
+                          class="btn btn-outline-secondary"
+                          id="formFileLg"
+                          (click)="onUpload()"
+                        >
+                          Subir
+                        </button>
+                      </form>
+                    </div>
+                    <div class="col-sm-12">
+                      <form
+                        [formGroup]="fileForm"
+                        (ngSubmit)="onSubmit()"
+                        enctype="multipart"
+                      >
+                        <input
+                          formControlName="file"
+                          class="form-control upload"
+                          id="formFileLg"
+                          type="file"
+                          (change)="onFileChange($event)"
+                        />
+                        <button
+                          type="submit"
+                          class="btn btn-outline-secondary"
+                          id="formFileLg"
+                        >
+                          Subir
+                        </button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
