@@ -29,30 +29,32 @@ export class ListarProductosComponent implements OnInit{
   }
 
   openPdfTables() {
-    
-      const documentDefinition: any = {
-        content: [
-          {
-            table: {
-              
-              headerRows: 1,
-              widths: ['*', 'auto', 100, '*'],
+    const tableContent = [];
   
-              body: [
-                [{ text: 'Nombre', bold: true }, { text: 'Categoria', bold: true }, { text: 'Ubicacion', bold: true }, { text: 'Precio', bold: true }],
-                [this.listProductos[0].producto, this.listProductos[0].categoria, this.listProductos[0].ubicacion, this.listProductos[0].precio],
-                [this.listProductos[1].producto, this.listProductos[1].categoria, this.listProductos[1].ubicacion, this.listProductos[1].precio],
-                [this.listProductos[2].producto, this.listProductos[2].categoria, this.listProductos[2].ubicacion, this.listProductos[2].precio]
-              ]
-
-              
-            }
+    // Utilizar un bucle para agregar las filas de datos
+    for (let i = 0; i < this.listProductos.length; i++) {
+      const producto = this.listProductos[i];
+      const row = [producto.producto, producto.categoria, producto.ubicacion, producto.precio];
+      tableContent.push(row);
+    }
+  
+    const documentDefinition: any = {
+      content: [
+        {
+          table: {
+            headerRows: 1,
+            widths: ['*', 'auto', 100, '*'],
+            body: [
+              [{ text: 'Nombre', bold: true }, { text: 'Categoria', bold: true }, { text: 'Ubicacion', bold: true }, { text: 'Precio', bold: true }],
+              ...tableContent 
+            ]
           }
-        ]
-      };
-      pdfMake.createPdf(documentDefinition).open();
+        }
+      ]
+    };
+    pdfMake.createPdf(documentDefinition).open();
   }
-
+  
 
   obtenerProductos(){
     this._productoService.getProductos().subscribe(data => {

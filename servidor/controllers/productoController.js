@@ -5,10 +5,10 @@ exports.crearProducto = async (req, res) => {
     console.log(req.body)
     try {
         
-        // const producto = new Producto(req.body);
+        const producto = new Producto(req.body);
 
-        // await producto.save();
-        res.send("OK");
+        await producto.save();
+        res.json({message: "OK"});
 
 
     } catch (error) {
